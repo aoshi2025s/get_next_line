@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 05:48:51 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 06:22:40 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	ft_getchar(int fd)
 	return (EOF);
 }
 
-int	ft_addchar(t_string *str, char c)
+int	ft_addchar(t_line *str, char c)
 {
-	t_string	new_str;
+	t_line		new_str;
 	char		*delete_str;
 
 	new_str.str = 0;
@@ -56,7 +56,7 @@ int	ft_addchar(t_string *str, char c)
 
 char	*get_next_line(int fd)
 {
-	t_string	str;
+	t_line	str;
 	char		c;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

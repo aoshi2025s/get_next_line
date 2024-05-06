@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:55 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 06:02:21 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 06:23:36 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@
 
 # define READ_ERROR -42
 
-typedef struct s_string
+typedef struct s_line
 {
 	char	*str;
 	size_t	len;
 	size_t	capacity;
-}			t_string;
+}			t_line;
 
 char		*get_next_line(int fd);
 char		*ft_strcpy(char *dest, const char *src);
 char		ft_getchar(int fd);
 
-int			ft_addchar(t_string *str, char c);
+int			ft_addchar(t_line *str, char c);
 
 #endif
