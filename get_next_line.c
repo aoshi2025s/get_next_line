@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 02:22:20 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 02:46:57 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ char	ft_getchar(int fd)
 	read_byte--;
 	if (read_byte >= 0)
 		return (*buffptr++);
-	else
-		return (EOF);
+	return (EOF);
 }
 
 int	ft_addchar(t_string *str, char c)
