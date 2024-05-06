@@ -15,7 +15,7 @@
 char	*ft_strcpy(char *dest, const char *src)
 {
 	char	*result;
-	
+
 	if (!dest || !src)
 		return (0);
 	result = dest;

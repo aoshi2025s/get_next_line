@@ -17,13 +17,8 @@
 # include <unistd.h>
 # define FD_MAX 10240
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
-#endif
-
-
-
-
-
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 #endif
