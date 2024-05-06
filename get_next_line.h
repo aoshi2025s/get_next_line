@@ -6,23 +6,25 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:55 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 03:16:30 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 06:02:21 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <stdlib.h>
+# include <unistd.h>
+
 # ifndef EOF
 #  define EOF 0x1A
 # endif
 
-# include <stdlib.h>
-# include <unistd.h>
-
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+# define READ_ERROR -42
 
 typedef struct s_string
 {
