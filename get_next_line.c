@@ -33,8 +33,8 @@ char	ft_getchar(int fd)
 
 int	ft_addchar(t_line *str, char c)
 {
-	t_line		new_str;
-	char		*delete_str;
+	t_line	new_str;
+	char	*delete_str;
 
 	new_str.str = 0;
 	if (str->len + 1 >= str->capacity)
@@ -57,7 +57,7 @@ int	ft_addchar(t_line *str, char c)
 char	*get_next_line(int fd)
 {
 	t_line	str;
-	char		c;
+	char	c;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
