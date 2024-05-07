@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:30:51 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 11:14:40 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 11:28:27 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_buffinfo
 	int		prev_fd;
 }			t_buffinfo;
 
-char		*get_next_line_b(int fd);
+char		*get_next_line(int fd);
 char		*ft_strcpy(char *dest, const char *src);
 char		ft_getchar(int fd);
 
