@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 06:19:06 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 11:13:53 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 17:01:17 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_next_line(int fd)
 	t_line	str;
 	char	c;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX)
 		return (NULL);
 	str.str = NULL;
 	str.len = 0;

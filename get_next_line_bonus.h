@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:30:51 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 16:49:41 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/07 16:59:31 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # endif
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 100
 # endif
 
-# if BUFFER_SIZE > 99999999
-#  error "BUFFER_SIZE is too big"
+# if BUFFER_SIZE > 99999999 || BUFFER_SIZE <= 0
+#  error "BUFFER_SIZE must be greater than 0 and less than or equal to 99999999"
 # endif
 
 # define READ_ERROR -42
