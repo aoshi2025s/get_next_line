@@ -41,7 +41,7 @@ int	ft_addchar(t_line *str, char c)
 		if (new_str.str == NULL)
 			return (0);
 		if (str->str != NULL)
-			ft_strcpy(new_str.str, str->str);
+			ft_memcpy(new_str.str, str->str, str->len);
 		delete_str = str->str;
 		str->str = new_str.str;
 		free(delete_str);

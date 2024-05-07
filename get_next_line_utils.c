@@ -12,15 +12,16 @@
 
 #include "get_next_line.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*result;
+	unsigned char	*uc_dst;
+	unsigned char	*uc_src;
 
-	if (!dest || !src)
+	if (!dst && !src)
 		return (0);
-	result = dest;
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (result);
+	uc_dst = (unsigned char *)dst;
+	uc_src = (unsigned char *)src;
+	while (n--)
+		*uc_dst++ = *uc_src++;
+	return (dst);
 }

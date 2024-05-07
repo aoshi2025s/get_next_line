@@ -38,9 +38,8 @@ typedef struct s_line
 }			t_line;
 
 char		*get_next_line(int fd);
-char		*ft_strcpy(char *dest, const char *src);
 char		ft_getchar(int fd);
-
 int			ft_addchar(t_line *str, char c);
+void		*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif
