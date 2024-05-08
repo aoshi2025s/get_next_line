@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 06:19:06 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 17:01:17 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/08 09:32:56 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	ft_getchar(int fd)
 {
-	static t_buffinfo	buffinfo[OPEN_MAX + 1];
+	static t_buffinfo	buffinfo[OPEN_MAX];
 
 	if (buffinfo[fd].read_byte == 0)
 	{
