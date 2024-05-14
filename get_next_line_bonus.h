@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:30:51 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/08 04:28:34 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/11 09:27:24 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_buffinfo
 	char	buf[BUFFER_SIZE];
 	char	*buffptr;
 	int		read_byte;
-	int		prev_fd;
 }			t_buffinfo;
 
 char		*get_next_line(int fd);
