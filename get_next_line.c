@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/15 00:58:01 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/15 03:50:27 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ char	ft_getchar(int fd)
 
 int	ft_addchar(t_line *line, char c)
 {
-	t_line	new_str;
+	t_line	new_line;
 	char	*delete_str;
 
-	new_str.str = 0;
+	new_line.str = 0;
 	if (line->len + 1 >= line->capacity)
 	{
-		new_str.str = (char *)malloc(sizeof(char) * ((line->len + 1) * 2));
-		if (!new_str.str)
+		new_line.str = (char *)malloc(sizeof(char) * ((line->len + 1) * 2));
+		if (!new_line.str)
 			return (0);
 		if (line->str != NULL)
-			ft_memcpy(new_str.str, line->str, line->len);
+			ft_memcpy(new_line.str, line->str, line->len);
 		delete_str = line->str;
-		line->str = new_str.str;
+		line->str = new_line.str;
 		free(delete_str);
 		line->capacity = (line->len + 1) * 2;
 	}
@@ -71,7 +71,7 @@ char	*get_next_line(int fd)
 			return (free(line.str), NULL);
 		if (c == EOF)
 			break ;
-		if (ft_addchar(&line, c) == 0 && line.str)
+		if (ft_addchar(&line, c) == 0)
 			return (free(line.str), NULL);
 		if (c == '\n')
 			break ;
