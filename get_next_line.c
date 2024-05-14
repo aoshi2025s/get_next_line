@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 17:01:03 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/15 00:58:01 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,52 +31,52 @@ char	ft_getchar(int fd)
 	return (EOF);
 }
 
-int	ft_addchar(t_line *str, char c)
+int	ft_addchar(t_line *line, char c)
 {
 	t_line	new_str;
 	char	*delete_str;
 
 	new_str.str = 0;
-	if (str->len + 1 >= str->capacity)
+	if (line->len + 1 >= line->capacity)
 	{
-		new_str.str = (char *)malloc(sizeof(char) * ((str->len + 1) * 2));
+		new_str.str = (char *)malloc(sizeof(char) * ((line->len + 1) * 2));
 		if (!new_str.str)
 			return (0);
-		if (str->str != NULL)
-			ft_memcpy(new_str.str, str->str, str->len);
-		delete_str = str->str;
-		str->str = new_str.str;
+		if (line->str != NULL)
+			ft_memcpy(new_str.str, line->str, line->len);
+		delete_str = line->str;
+		line->str = new_str.str;
 		free(delete_str);
-		str->capacity = (str->len + 1) * 2;
+		line->capacity = (line->len + 1) * 2;
 	}
-	str->str[str->len] = c;
-	str->len++;
+	line->str[line->len] = c;
+	line->len++;
 	return (1);
 }
 
 char	*get_next_line(int fd)
 {
-	t_line	str;
+	t_line	line;
 	char	c;
 
 	if (fd < 0)
 		return (NULL);
-	str.str = NULL;
-	str.len = 0;
-	str.capacity = 0;
+	line.str = NULL;
+	line.len = 0;
+	line.capacity = 0;
 	while (1)
 	{
 		c = ft_getchar(fd);
 		if (c == READ_ERROR)
-			return (free(str.str), NULL);
+			return (free(line.str), NULL);
 		if (c == EOF)
 			break ;
-		if (ft_addchar(&str, c) == 0)
-			return (free(str.str), NULL);
+		if (ft_addchar(&line, c) == 0 && line.str)
+			return (free(line.str), NULL);
 		if (c == '\n')
 			break ;
 	}
-	if (str.len > 0 && (ft_addchar(&str, '\0') == 0))
-		return (free(str.str), NULL);
-	return (str.str);
+	if (line.len > 0 && (ft_addchar(&line, '\0') == 0))
+		return (free(line.str), NULL);
+	return (line.str);
 }
