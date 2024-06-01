@@ -33,24 +33,19 @@ char	ft_getchar(int fd)
 
 int	ft_addchar(t_line *line, char c)
 {
-	t_line	new_line;
-	char	*delete_str;
+	char	*new_str;
 
-	new_line.str = 0;
 	if (line->len + 1 >= line->capacity)
 	{
-		new_line.str = (char *)malloc(sizeof(char) * ((line->len + 1) * 2));
-		if (!new_line.str)
-			return (0);
-		if (line->str != NULL)
-			ft_memcpy(new_line.str, line->str, line->len);
-		delete_str = line->str;
-		line->str = new_line.str;
-		free(delete_str);
 		line->capacity = (line->len + 1) * 2;
+		new_str = (char *)malloc(sizeof(char) * line->capacity);
+		if (!new_str)
+			return (0);
+		ft_memcpy(new_str, line->str, line->len);
+		free(line->str);
+		line->str = new_str;
 	}
-	line->str[line->len] = c;
-	line->len++;
+	line->str[line->len++] = c;
 	return (1);
 }
 

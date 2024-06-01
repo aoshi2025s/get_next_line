@@ -31,24 +31,20 @@ char	ft_getchar(int fd)
 
 int	ft_addchar(t_line *str, char c)
 {
-	t_line	new_str;
-	char	*delete_str;
+	char	*new_str;
 
-	new_str.str = 0;
+	new_str = 0;
 	if (str->len + 1 >= str->capacity)
 	{
-		new_str.str = (char *)malloc(sizeof(char) * ((str->len + 1) * 2));
-		if (new_str.str == NULL)
-			return (0);
-		if (str->str != NULL)
-			ft_memcpy(new_str.str, str->str, str->len);
-		delete_str = str->str;
-		str->str = new_str.str;
-		free(delete_str);
 		str->capacity = (str->len + 1) * 2;
+		new_str = (char *)malloc(sizeof(char) * str->capacity);
+		if (new_str == NULL)
+			return (0);
+		ft_memcpy(new_str, str->str, str->len);
+		free(str->str);
+		str->str = new_str;
 	}
-	str->str[str->len] = c;
-	str->len++;
+	str->str[str->len++] = c;
 	return (1);
 }
 
