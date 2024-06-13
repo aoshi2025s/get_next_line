@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/15 03:50:27 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/13 21:36:33 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ char	ft_getchar(int fd)
 
 int	ft_addchar(t_line *line, char c)
 {
-	char	*new_str;
+	char			*new_str;
+	unsigned char	*dest;
+	unsigned char	*src;
+	size_t			len;
 
 	if (line->len + 1 >= line->capacity)
 	{
@@ -41,7 +44,11 @@ int	ft_addchar(t_line *line, char c)
 		new_str = (char *)malloc(sizeof(char) * line->capacity);
 		if (!new_str)
 			return (0);
-		ft_memcpy(new_str, line->str, line->len);
+		dest = (unsigned char *)new_str;
+		src = (unsigned char *)line->str;
+		len = line->len;
+		while (len--)
+			*dest++ = *src++;
 		free(line->str);
 		line->str = new_str;
 	}
