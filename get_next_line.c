@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/06/13 21:36:33 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 00:39:10 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ char	ft_getchar(int fd)
 	{
 		read_byte = read(fd, buf, BUFFER_SIZE);
 		if (read_byte < 0)
-			return (READ_ERROR);
+			return (read_byte++, READ_ERROR);
 		buffptr = buf;
 	}
 	read_byte--;
 	if (read_byte >= 0)
 		return (*buffptr++);
-	return (EOF);
+	return (read_byte++, EOF);
 }
 
 int	ft_addchar(t_line *line, char c)
