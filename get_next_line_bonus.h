@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:30:51 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/06/26 20:53:17 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 23:05:39 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_line
 {
 	char	*str;
 	size_t	len;
-	size_t	capacity;
+	size_t	capa;
 }			t_line;
 
 typedef struct s_buffinfo

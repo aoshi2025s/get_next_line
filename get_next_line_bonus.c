@@ -6,13 +6,13 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 06:19:06 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/06/26 00:40:06 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 23:06:11 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	ft_getchar(int fd)
+char	ft_getc(int fd)
 {
 	static t_buffinfo	buffinfo[OPEN_MAX + 1];
 
@@ -29,7 +29,7 @@ char	ft_getchar(int fd)
 	return (buffinfo[fd].read_byte++, EOF);
 }
 
-int	ft_addchar(t_line *str, char c)
+int	ft_putc(t_line *str, char c)
 {
 	char	*new_str;
 	char	*dest;
@@ -37,10 +37,10 @@ int	ft_addchar(t_line *str, char c)
 	size_t	len;
 
 	new_str = 0;
-	if (str->len + 1 >= str->capacity)
+	if (str->len + 1 >= str->capa)
 	{
-		str->capacity = (str->len + 1) * 2;
-		new_str = (char *)malloc(sizeof(char) * str->capacity);
+		str->capa = (str->len + 1) * 2;
+		new_str = (char *)malloc(sizeof(char) * str->capa);
 		if (new_str == NULL)
 			return (0);
 		dest = new_str;
@@ -62,22 +62,22 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > OPEN_MAX)
 		return (NULL);
-	str.str = NULL;
+	str.str = 0;
 	str.len = 0;
-	str.capacity = 0;
+	str.capa = 0;
 	while (1)
 	{
-		c = ft_getchar(fd);
+		c = ft_getc(fd);
 		if (c == READ_ERROR)
 			return (free(str.str), NULL);
 		if (c == EOF)
 			break ;
-		if (ft_addchar(&str, c) == 0)
+		if (ft_putc(&str, c) == 0)
 			return (free(str.str), NULL);
 		if (c == '\n')
 			break ;
 	}
-	if (str.len > 0 && (ft_addchar(&str, '\0') == 0))
+	if (str.len > 0 && (ft_putc(&str, '\0') == 0))
 		return (free(str.str), NULL);
 	return (str.str);
 }

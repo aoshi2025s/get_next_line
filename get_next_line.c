@@ -6,13 +6,13 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:18 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/06/26 00:39:10 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 23:04:31 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	ft_getchar(int fd)
+char	ft_getc(int fd)
 {
 	static char	buf[BUFFER_SIZE];
 	static char	*buffptr;
@@ -31,7 +31,7 @@ char	ft_getchar(int fd)
 	return (read_byte++, EOF);
 }
 
-int	ft_addchar(t_line *line, char c)
+int	ft_putc(t_line *line, char c)
 {
 	char			*new_str;
 	unsigned char	*dest;
@@ -63,22 +63,22 @@ char	*get_next_line(int fd)
 
 	if (fd < 0)
 		return (NULL);
-	line.str = NULL;
+	line.str = 0;
 	line.len = 0;
 	line.capacity = 0;
 	while (1)
 	{
-		c = ft_getchar(fd);
+		c = ft_getc(fd);
 		if (c == READ_ERROR)
 			return (free(line.str), NULL);
 		if (c == EOF)
 			break ;
-		if (ft_addchar(&line, c) == 0)
+		if (ft_putc(&line, c) == 0)
 			return (free(line.str), NULL);
 		if (c == '\n')
 			break ;
 	}
-	if (line.len > 0 && (ft_addchar(&line, '\0') == 0))
+	if (line.len > 0 && (ft_putc(&line, '\0') == 0))
 		return (free(line.str), NULL);
 	return (line.str);
 }
