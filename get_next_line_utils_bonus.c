@@ -6,10 +6,11 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:32:15 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 11:04:21 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 20:52:50 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "get_next_line_bonus.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
@@ -25,3 +26,4 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		*uc_dst++ = *uc_src++;
 	return (dst);
 }
+*/

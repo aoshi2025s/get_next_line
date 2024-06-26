@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:55 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/07 16:59:42 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/06/26 20:53:05 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ typedef struct s_line
 char		*get_next_line(int fd);
 char		ft_getchar(int fd);
 int			ft_addchar(t_line *str, char c);
-void		*ft_memcpy(void *dst, const void *src, size_t n);
+// void		*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif
