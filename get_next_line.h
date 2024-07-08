@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 09:15:55 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/06/26 20:53:05 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/07/08 14:03:21 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # ifndef EOF
 #  define EOF 0x1A
@@ -28,7 +29,7 @@
 #  error "BUFFER_SIZE must be greater than 0 and less than or equal to 99999999"
 # endif
 
-# define READ_ERROR -42
+# define ERROR -42
 
 typedef struct s_line
 {
